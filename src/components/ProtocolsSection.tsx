@@ -70,17 +70,19 @@ export default function ProtocolsSection() {
       </div>
 
       <div className="max-w-[1380px] mx-auto px-8 md:px-[32px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-end mb-16">
-          <Reveal>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start mb-16">
+          <Reveal className="min-w-0">
             <div className="font-mono text-[11px] tracking-[0.18em] uppercase text-silver font-medium mb-3.5">
               Section 07 · Boutique &amp; protocoles
             </div>
-            <h2 className="font-display font-bold text-[clamp(38px,5.2vw,80px)] leading-[0.92] tracking-tight uppercase text-balance">
-              Protocoles<br />&amp; solutions<br />
-              d&apos;<em className="not-italic text-silver font-medium">accompagnement.</em>
+            <h2 className="font-display font-bold text-[clamp(32px,4.2vw,56px)] lg:text-[clamp(36px,4.6vw,68px)] leading-[0.92] tracking-tight uppercase">
+              Protocoles<br />
+              &amp; solutions<br />
+              d&apos;<br />
+              <em className="not-italic text-silver font-medium">accompagnement.</em>
             </h2>
           </Reveal>
-          <Reveal delay={200}>
+          <Reveal delay={200} className="min-w-0 lg:max-w-[520px] lg:justify-self-end">
             <p className="font-sans font-light text-[clamp(17px,1.3vw,20px)] leading-[1.7] text-[#3a2326] text-pretty">
               Découvrez les protocoles, produits et solutions associés à l&apos;écosystème Diamond Incision pour accompagner le parcours de transformation, de récupération et d&apos;évolution esthétique avant et après intervention.
             </p>

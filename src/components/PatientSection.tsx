@@ -62,7 +62,7 @@ export default function PatientSection() {
             </Reveal>
             <Reveal delay={200}>
               <p className="mt-6 max-w-[560px] font-sans font-light text-[clamp(17px,1.4vw,22px)] leading-[1.55] text-[#3a2326] text-pretty">
-                Découvrez une approche innovante du parcours esthétique autour du traitement de la cellulite, des fibroses cicatricielles et de l'accompagnement avant et après intervention.
+                Découvrez une approche innovante du parcours esthétique autour du traitement de la cellulite, des fibroses cicatricielles et de l&apos;accompagnement avant et après intervention.
               </p>
             </Reveal>
             <Reveal delay={300} className="mt-[34px]">
@@ -78,10 +78,10 @@ export default function PatientSection() {
             <Reveal delay={400} className="mt-12 flex flex-col border-t border-(rule)">
               {[
                 "Télécharger mon guide Diamond",
-                "Prendre rendez-vous pour bénéficier du protocole Diamond (consultations)",
-                "Être mise en relation avec un expert péri-opératoire Diamond × METCARE",
+                "Prendre rdv pour bénéficier du protocole Diamond (consultations)",
+                "Être mise en relation avec un expert péri-opératoire Diamond x METCARE",
                 "Suivre mes recommandations Diamond",
-                "Découvrir les solutions d'accompagnement"
+                "Découvrir les solutions d&apos;accompagnement"
               ].map((text, idx) => (
                 <div key={idx} className="group flex items-center gap-[18px] py-6 border-b border-(rule) cursor-pointer transition-all hover:pl-2">
                   <span className="font-mono text-[11px] tracking-[0.18em] text-silver">{String(idx + 1).padStart(2, '0')}</span>

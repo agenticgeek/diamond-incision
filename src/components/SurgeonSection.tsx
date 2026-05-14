@@ -88,13 +88,16 @@ export default function SurgeonSection() {
         
         <Reveal delay={400} className="flex gap-3 flex-wrap">
           <a href="#" className="inline-flex items-center gap-3.5 px-7 py-[18px] rounded-full font-display font-bold text-xs tracking-[0.14em] uppercase bg-beige text-cherry shadow-[inset_0_0_0_1px_rgba(43,21,23,0.08),0_14px_30px_-16px_rgba(43,21,23,0.4)] transition-all hover:-translate-y-0.5 hover:brightness-105">
-            Découvrir l'écosystème Diamond <span className="relative w-[18px] h-2.5 ml-3.5">
+            Découvrir l&apos;écosystème Diamond <span className="relative w-[18px] h-2.5 ml-3.5">
               <span className="absolute left-0 right-0 top-1/2 h-[1.5px] bg-current -translate-y-1/2"></span>
               <span className="absolute right-0 top-1/2 w-2 h-2 border-t-[1.5px] border-r-[1.5px] border-current -translate-y-1/2 rotate-45"></span>
             </span>
           </a>
           <a href="#" className="inline-flex items-center gap-3.5 px-7 py-[18px] rounded-full font-display font-bold text-xs tracking-[0.14em] uppercase border border-[rgba(236,235,233,0.7)] text-snow transition-all hover:bg-snow hover:text-cherry hover:-translate-y-0.5">
-            Candidature formation
+            Formulaire data récolte
+          </a>
+          <a href="/chirurgien" className="inline-flex items-center gap-3.5 px-7 py-[18px] rounded-full font-display font-bold text-xs tracking-[0.14em] uppercase border border-[rgba(236,235,233,0.7)] text-snow transition-all hover:bg-snow hover:text-cherry hover:-translate-y-0.5">
+            Diamond candidature formation
           </a>
         </Reveal>
       </div>
