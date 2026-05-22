@@ -1,14 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import Reveal from "./Reveal";
+import { useLanguage } from "@/lib/LanguageProvider";
 
 export default function FinalCTA() {
-  const cards = [
-    { id: "patient", num: "F / 01", label: "Patient", title: "Je suis\npatient", cta: "Accéder", icon: "pi-1" },
-    { id: "pro", num: "F / 02", label: "Pro", title: "Je suis\nprofessionnel", cta: "Formations", icon: "pi-2" },
-    { id: "chirurgien", num: "F / 03", label: "Surgeon", title: "Je suis\nchirurgien", cta: "Candidature", icon: "pi-3" },
-    { id: "protocoles", num: "F / 04", label: "Boutique", title: "Protocoles\n& solutions", cta: "Découvrir", icon: "pi-4" },
-  ];
+  const { strings } = useLanguage();
+  const cards = strings.finalCTA.cards;
 
   return (
     <section className="py-[140px] pb-[100px] bg-ink text-snow relative overflow-hidden sect-final" id="final">
@@ -17,19 +15,21 @@ export default function FinalCTA() {
       <div className="absolute top-8 left-8 md:top-[32px] md:left-[32px] flex items-center gap-[10px]">
         <span className="w-1.5 h-1.5 rounded-full bg-silver"></span>
         <span className="font-mono text-[11px] tracking-[0.18em] text-silver">09</span>
-        <span className="font-mono text-[11px] tracking-[0.18em] opacity-55 text-[rgba(236,235,233,0.55)]">— Découvrez votre parcours</span>
+        <span className="font-mono text-[11px] tracking-[0.18em] opacity-55 text-[rgba(236,235,233,0.55)]">— {strings.finalCTA.sectionLabel}</span>
       </div>
       
       <div className="max-w-[1380px] mx-auto px-8 md:px-[32px]">
         <Reveal>
           <h2 className="font-display font-bold text-[clamp(46px,6.8vw,118px)] leading-[0.9] tracking-[-0.03em] uppercase text-center text-balance">
-            Découvrez<br />votre <span className="chrome-text-final italic">parcours.</span>
-          </h2>
-          <p className="text-center max-w-[620px] mx-auto mt-6 text-[rgba(236,235,233,0.7)] font-sans font-light text-[17px] leading-[1.6]">
-            Quatre destinations, un écosystème. Choisissez le parcours qui vous ressemble — patients, professionnels, chirurgiens, protocoles.
-          </p>
-        </Reveal>
-        
+              {strings.finalCTA.heading.split("\n").map((line, idx) => (
+                <span key={idx} className={idx > 0 ? "block" : undefined}>{line}</span>
+              ))}
+            </h2>
+            <p className="text-center max-w-[620px] mx-auto mt-6 text-[rgba(236,235,233,0.7)] font-sans font-light text-[17px] leading-[1.6]">
+              {strings.finalCTA.summary}
+            </p>
+          </Reveal>
+
         <div className="mt-[70px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
           {cards.map((card, idx) => (
             <Reveal key={card.id} delay={idx * 100}>
@@ -89,14 +89,12 @@ export default function FinalCTA() {
         
         <div className="mt-[72px] flex justify-center items-center gap-10 pt-10 border-t border-(rule-light) flex-wrap">
           <div className="flex items-center gap-2.5 font-display font-bold text-sm tracking-[0.06em] uppercase">
-            <span className="w-[26px] h-[26px] rounded-full bg-[radial-gradient(circle_at_30%_30%,#fff,#c9d3de_40%,#7b95ad_78%,#3f546a)] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.06)]"></span>
+            <Image src="/assets/Metcare-logo.svg" alt="METCARE Logo" width={26} height={26} className="w-[26px] h-[26px]" />
             <span>METCARE®</span>
           </div>
           <span className="font-mono text-lg text-silver">×</span>
           <div className="flex items-center gap-2.5 font-display font-bold text-sm tracking-[0.06em] uppercase">
-            <span className="w-[26px] h-[26px] grid place-items-center relative">
-              <span className="w-[14px] h-[14px] bg-linear-to-br from-white via-[#c9d3de_30%] via-[#6a88a4_70%] to-[#1b2d4f] rotate-45 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.4),0_4px_14px_rgba(106,136,164,0.4)]"></span>
-            </span>
+            <Image src="/assets/logo.png" alt="Diamond Incision Logo" width={26} height={26} className="w-[26px] h-[26px]" />
             <span>Diamond Incision®</span>
           </div>
         </div>
@@ -106,35 +104,48 @@ export default function FinalCTA() {
 }
 
 export function Footer() {
+  const { locale, setLocale, strings } = useLanguage();
   return (
     <footer className="bg-ink text-[rgba(236,235,233,0.7)] py-[60px] pb-10 border-t border-(rule-light)">
       <div className="max-w-[1380px] mx-auto px-8 md:px-[32px]">
         <div className="flex justify-between items-center gap-[30px] flex-wrap">
           <div className="flex items-center gap-[18px] text-snow">
             <div className="flex items-center gap-2 font-display font-bold text-[13px] tracking-[0.06em]">
-              <span className="w-[26px] h-[26px] rounded-full bg-[radial-gradient(circle_at_30%_30%,#fff,#c9d3de_40%,#7b95ad_78%,#3f546a)] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.06)]"></span>
+              <Image src="/assets/Metcare-logo.svg" alt="METCARE Logo" width={26} height={26} className="w-[26px] h-[26px]" />
               <span>METCARE<sup className="text-[8px]">®</sup></span>
             </div>
             <span className="w-px h-[18px] bg-[rgba(236,235,233,0.3)]"></span>
             <div className="flex items-center gap-2 font-display font-bold text-[13px] tracking-[0.06em]">
-              <span className="w-[26px] h-[26px] grid place-items-center relative">
-                <span className="w-[14px] h-[14px] bg-linear-to-br from-white via-[#c9d3de_30%] via-[#6a88a4_70%] to-[#1b2d4f] rotate-45 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.4),0_4px_14px_rgba(106,136,164,0.4)]"></span>
-              </span>
+              <Image src="/assets/logo.png" alt="Diamond Incision Logo" width={26} height={26} className="w-[26px] h-[26px]" />
               <span>Diamond Incision<sup className="text-[8px]">®</sup></span>
             </div>
           </div>
           
-          <div className="flex gap-[22px] font-mono text-[11px] tracking-[0.16em] uppercase flex-wrap">
-            <a href="#" className="opacity-65 hover:opacity-100 transition-opacity">Mentions légales</a>
-            <a href="#" className="opacity-65 hover:opacity-100 transition-opacity">Politique de confidentialité</a>
-            <a href="#" className="opacity-65 hover:opacity-100 transition-opacity">Contact</a>
-            <a href="#" className="text-snow opacity-90">FR / EN</a>
+          <div className="flex gap-[10px] font-mono text-[11px] tracking-[0.16em] uppercase flex-wrap">
+            {strings.finalCTA.footerLinks.map((link) => (
+            <a key={link.label} href={link.href} className="opacity-65 hover:opacity-100 transition-opacity">{link.label}</a>
+          ))}
+            <button
+              type="button"
+              onClick={() => setLocale("fr")}
+              className={`transition-opacity ${locale === "fr" ? "opacity-100 text-snow" : "opacity-40"}`}
+            >
+              FR
+            </button>
+            <span className="opacity-40">/</span>
+            <button
+              type="button"
+              onClick={() => setLocale("en")}
+              className={`transition-opacity ${locale === "en" ? "opacity-100 text-snow" : "opacity-40"}`}
+            >
+              EN
+            </button>
           </div>
         </div>
         
         <div className="mt-[30px] pt-6 border-t border-(rule-light) font-mono text-[10px] tracking-[0.18em] text-[rgba(236,235,233,0.45)] flex justify-between flex-wrap gap-3.5">
-          <span>© 2026 METCARE® / My Esthetic Travel® — Mila Pecheu. Tous droits réservés.</span>
-          <span>Diamond Incision® × METCARE® · Édition 2026 · Confidential</span>
+          <span>{strings.finalCTA.copyright}</span>
+          <span>{strings.finalCTA.footerMeta}</span>
         </div>
       </div>
     </footer>

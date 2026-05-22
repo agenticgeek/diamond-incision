@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins, Raleway, JetBrains_Mono } from "next/font/google";
+import LanguageProvider from "@/lib/LanguageProvider";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -36,7 +37,7 @@ export default function RootLayout({
       className={`${poppins.variable} ${raleway.variable} ${jetbrainsMono.variable} antialiased`}
     >
       <body className="bg-[#ECEBE9] text-[#2B1517] font-sans">
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

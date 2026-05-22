@@ -2,8 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { useLanguage } from "@/lib/LanguageProvider";
 
 export default function Header() {
+  const { locale, setLocale, strings } = useLanguage();
   const [isOnDark, setIsOnDark] = useState(false);
 
   useEffect(() => {
@@ -53,32 +56,49 @@ export default function Header() {
     >
       <div className="flex items-center gap-[18px]">
         <Link href="#top" onClick={(e) => scrollToSection(e, "#top")} className="flex items-center gap-2 font-display font-bold text-[13px] tracking-[0.06em]">
-          <span className="w-[26px] height-[26px] rounded-full bg-[radial-gradient(circle_at_30%_30%,#fff,#c9d3de_40%,#7b95ad_78%,#3f546a)] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.06)] block aspect-square"></span>
+          <Image src="/assets/Metcare-logo.svg" alt="METCARE Logo" width={26} height={26} className="w-[26px] h-[26px]" />
           <span>METCARE<sup className="text-[8px]">®</sup></span>
         </Link>
         <span className="w-px h-[18px] bg-current opacity-25"></span>
         <Link href="#top" onClick={(e) => scrollToSection(e, "#top")} className="flex items-center gap-2 font-display font-bold text-[13px] tracking-[0.06em]">
-          <span className="w-[26px] h-[26px] grid place-items-center relative">
-            <span className="w-[14px] h-[14px] bg-linear-to-br from-white via-[#c9d3de_30%] via-[#6a88a4_70%] to-[#1b2d4f] rotate-45 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.4),0_4px_14px_rgba(106,136,164,0.4)]"></span>
-          </span>
+          <Image
+            src="/assets/logo.png"
+            alt="Diamond Incision Logo"
+            width={26}
+            height={26}
+            className="w-[26px] h-[26px]"
+          />
           <span>Diamond Incision<sup className="text-[8px]">®</sup></span>
         </Link>
       </div>
       <nav className="hidden md:flex items-center gap-7">
-        {["Parcours", "Patient", "Professionnel", "Chirurgien", "Protocoles", "Immersion"].map((item) => (
+        {strings.header.nav.map((item) => (
           <Link
-            key={item}
-            href={`#${item.toLowerCase()}`}
-            onClick={(e) => scrollToSection(e, `#${item.toLowerCase()}`)}
+            key={item.label}
+            href={`#${item.id}`}
+            onClick={(e) => scrollToSection(e, `#${item.id}`)}
             className="font-mono text-[11px] tracking-[0.16em] uppercase opacity-70 hover:opacity-100 transition-opacity"
           >
-            {item}
+            {item.label}
           </Link>
         ))}
       </nav>
       <div className="font-mono text-[11px] tracking-[0.16em] uppercase flex items-center gap-1.5">
-        <b className="opacity-100">FR</b>
-        <span className="opacity-40">/ EN</span>
+        <button
+          type="button"
+          onClick={() => setLocale("fr")}
+          className={`transition-opacity ${locale === "fr" ? "opacity-100" : "opacity-40"}`}
+        >
+          FR
+        </button>
+        <span className="opacity-40">/</span>
+        <button
+          type="button"
+          onClick={() => setLocale("en")}
+          className={`transition-opacity ${locale === "en" ? "opacity-100" : "opacity-40"}`}
+        >
+          EN
+        </button>
       </div>
     </header>
   );

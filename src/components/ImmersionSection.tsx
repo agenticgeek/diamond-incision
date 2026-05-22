@@ -6,8 +6,10 @@ import HeroVideo from "./HeroVideo";
 import { useCinematicZoom } from "@/hooks/useCinematicZoom";
 import { useRef } from "react";
 import { ASSET_IMAGES, REEL_STREAM } from "@/constants/reels";
+import { useLanguage } from "@/lib/LanguageProvider";
 
 export default function ImmersionSection() {
+  const { strings } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
@@ -23,18 +25,18 @@ export default function ImmersionSection() {
       <div className="absolute top-8 left-8 md:top-[32px] md:left-[32px] flex items-center gap-[10px]">
         <span className="w-1.5 h-1.5 rounded-full bg-beige"></span>
         <span className="font-mono text-[11px] tracking-[0.18em] text-beige">08</span>
-        <span className="font-mono text-[11px] tracking-[0.18em] opacity-55 text-[rgba(236,235,233,0.55)]">— Immersion internationale</span>
+        <span className="font-mono text-[11px] tracking-[0.18em] opacity-55 text-[rgba(236,235,233,0.55)]">— {strings.immersionSection.sectionLabel}</span>
       </div>
       
       <div className="mx-auto max-w-[1380px] min-w-0 px-8 md:px-[32px]">
         <Reveal>
           <div className="font-mono text-[11px] tracking-[0.18em] uppercase text-beige font-medium">
-            Section 08 · International
+            {strings.immersionSection.sectionLabel}
           </div>
           <h2 className="font-display font-bold text-[clamp(46px,7vw,120px)] leading-[0.9] tracking-[-0.03em] uppercase text-balance max-w-[1280px] mt-[18px]">
-            Une <em className="not-italic text-beige font-medium">innovation</em><br />
-            qui s'étend<br />
-            à <span className="chrome-text-final italic">l'international.</span>
+            {strings.immersionSection.titleLine1} <em className="not-italic text-beige font-medium">{strings.immersionSection.titleEmphasis}</em><br />
+            {strings.immersionSection.titleLine2}<br />
+            {strings.immersionSection.titleLine3} <span className="chrome-text-final italic">{strings.immersionSection.titleSpecial}</span>
           </h2>
         </Reveal>
         
@@ -57,11 +59,11 @@ export default function ImmersionSection() {
               <div className="pointer-events-none absolute inset-0 z-2 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.06)_0_1px,transparent_1px_3px)] opacity-55 mix-blend-overlay" />
 
               <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.9)] sm:text-[11px]">
-                Reel 05 · Showreel premium
+                {strings.immersionSection.mainVideoLabel}
               </div>
 
               <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.88)] sm:text-[11px]">
-                Congrès · Backstage · Networking
+                {strings.immersionSection.mainVideoFooter}
               </div>
             </div>
 
@@ -76,9 +78,9 @@ export default function ImmersionSection() {
               />
               <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-cherry/90 via-cherry/30 to-black/25" />
               <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.05)_0_1px,transparent_1px_2px)] opacity-50 mix-blend-overlay" />
-              <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-beige sm:text-[11px]">Capsule A</div>
+              <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-beige sm:text-[11px]">{strings.immersionSection.capsules[0].label}</div>
               <div className="relative z-10 max-w-[95%] font-mono text-[10px] leading-snug tracking-[0.18em] uppercase text-[rgba(255,255,255,0.9)] sm:text-[11px]">
-                Avant / Après · Transformations
+                {strings.immersionSection.capsules[0].text}
               </div>
             </div>
 
@@ -93,9 +95,9 @@ export default function ImmersionSection() {
               />
               <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-[#0d1626]/92 via-[#2c4768]/35 to-black/20" />
               <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.05)_0_1px,transparent_1px_2px)] opacity-50 mix-blend-overlay" />
-              <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-beige sm:text-[11px]">Capsule B</div>
+              <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-beige sm:text-[11px]">{strings.immersionSection.capsules[1].label}</div>
               <div className="relative z-10 max-w-[95%] font-mono text-[10px] leading-snug tracking-[0.18em] uppercase text-[rgba(255,255,255,0.9)] sm:text-[11px]">
-                Conférences internationales
+                {strings.immersionSection.capsules[1].text}
               </div>
             </div>
 
@@ -110,7 +112,7 @@ export default function ImmersionSection() {
               />
               <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-[#1a0a0c]/88 via-transparent to-black/30" />
               <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.05)_0_1px,transparent_1px_2px)] opacity-50 mix-blend-overlay" />
-              <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-beige sm:text-[11px]">Capsule C</div>
+              <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-beige sm:text-[11px]">{strings.immersionSection.capsules[2].label}</div>
             </div>
 
             {/* Capsule D */}
@@ -124,7 +126,7 @@ export default function ImmersionSection() {
               />
               <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-[#0a0f0d]/90 via-transparent to-black/35" />
               <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.05)_0_1px,transparent_1px_2px)] opacity-50 mix-blend-overlay" />
-              <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-beige sm:text-[11px]">Capsule D</div>
+              <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-beige sm:text-[11px]">{strings.immersionSection.capsules[3].label}</div>
             </div>
 
             {/* Capsule E */}
@@ -138,7 +140,7 @@ export default function ImmersionSection() {
               />
               <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-[#0d1626]/95 via-[#1b2d4f]/40 to-black/25" />
               <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.05)_0_1px,transparent_1px_2px)] opacity-50 mix-blend-overlay" />
-              <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-beige sm:text-[11px]">Capsule E</div>
+              <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-beige sm:text-[11px]">{strings.immersionSection.capsules[4].label}</div>
             </div>
           </div>
           </div>
@@ -148,9 +150,7 @@ export default function ImmersionSection() {
           <div className="flex gap-[60px] w-max animate-ticker items-center" style={{ animationDuration: "36s" }}>
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex gap-[60px] items-center">
-                {[
-                  "Congrès internationaux", "Formations", "Networking", "Interventions", "Backstage", "Conférences", "Professionnels spécialisés", "Accompagnement", "Évolution esthétique"
-                ].map((text) => (
+                {strings.immersionSection.ticker.map((text) => (
                   <div key={text} className="font-display font-bold text-[clamp(28px,4vw,52px)] uppercase tracking-[-0.01em] flex items-center gap-[60px] after:content-['◆'] after:text-silver after:text-[18px]">
                     {text} <em className="not-italic text-beige font-medium">·</em>
                   </div>
@@ -162,17 +162,15 @@ export default function ImmersionSection() {
         
         <Reveal delay={400} className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-[60px] items-end">
           <div className="flex flex-col gap-2.5">
-            {[
-              "Formation.", "Innovation.", "Accompagnement.", "Perfectionnement.", "Évolution du parcours esthétique."
-            ].map((text) => (
+            {strings.immersionSection.highlights.map((text) => (
               <span key={text} className="font-display font-bold text-[clamp(22px,2.6vw,40px)] leading-none uppercase tracking-[-0.02em]">
                 <em className="not-italic text-beige font-medium">{text}</em>
               </span>
             ))}
           </div>
           <div className="font-sans font-light text-base leading-[1.65] text-[rgba(236,235,233,0.75)] max-w-[420px] md:justify-self-end">
-            <strong className="text-snow font-display font-semibold tracking-[-0.01em] block mb-3.5 text-lg">Diamond Incision × METCARE®</strong>
-            Une nouvelle vision du parcours esthétique — réunissant innovation, expertise chirurgicale, accompagnement spécialisé et formation avancée à l'échelle internationale.
+            <strong className="text-snow font-display font-semibold tracking-[-0.01em] block mb-3.5 text-lg">{strings.immersionSection.closingTitle}</strong>
+            {strings.immersionSection.closingText}
           </div>
         </Reveal>
       </div>
