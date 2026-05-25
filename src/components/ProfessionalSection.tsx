@@ -2,7 +2,7 @@
 
 import Reveal from "./Reveal";
 import HeroVideo from "./HeroVideo";
-import { ASSET_IMAGES, REEL_STREAM } from "@/constants/reels";
+import { REEL_STREAM } from "@/constants/reels";
 import { useCinematicZoom } from "@/hooks/useCinematicZoom";
 import { useRef } from "react";
 import { useLanguage } from "@/lib/LanguageProvider";
@@ -30,13 +30,12 @@ export default function ProfessionalSection() {
       
       <div className="max-w-[1380px] mx-auto px-8 md:px-[32px]">
         <div className="grid grid-cols-1 lg:grid-cols-[0.45fr_0.55fr] gap-[60px] items-center">
-          <Reveal className="relative rounded-[22px] overflow-hidden aspect-4/3 bg-[radial-gradient(50%_60%_at_30%_30%,rgba(222,205,187,0.35),transparent_65%),linear-gradient(140deg,#3f546a_0%,#1b2d4f_50%,#0d1626_100%)] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6)] group">
+          <Reveal className="relative rounded-[22px] overflow-hidden aspect-4/3 bg-black shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6)] group">
             <div ref={mediaContainerRef} className="absolute inset-0">
               <HeroVideo
                 muted
-                hlsUrl={REEL_STREAM.promotional2}
-                poster={ASSET_IMAGES.photo22}
-                className="absolute inset-0 z-0 h-full w-full object-cover"
+                hlsUrl={REEL_STREAM.promotional3}
+                className="absolute inset-0 z-0 h-full w-full object-cover object-[50%_25%]"
               />
               <div className="absolute inset-0 z-[1] bg-[repeating-linear-gradient(180deg,rgba(255,255,255,0.04)_0_1px,transparent_1px_3px)] mix-blend-screen pointer-events-none"></div>
               <div className="absolute top-[18px] left-[18px] z-10 flex gap-2 items-center font-mono text-[10px] tracking-[0.22em] text-white bg-[rgba(0,0,0,0.32)] px-3 py-2 rounded-full backdrop-blur-md">

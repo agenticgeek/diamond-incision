@@ -94,7 +94,7 @@ export default function Hero() {
               <div ref={mediaContainerRef} className="absolute inset-0">
                 <HeroVideo
                   muted
-                  hlsUrl={REEL_STREAM.heroPrimary}
+                  hlsUrl={REEL_STREAM.premium}
                   poster={ASSET_IMAGES.photo43}
                   className="absolute inset-0 z-0 h-full w-full object-cover"
                 />
