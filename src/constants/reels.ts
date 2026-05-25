@@ -1,6 +1,8 @@
 /** Cloudflare Stream HLS manifests — promotional, doctor, product, client. */
 export const REEL_STREAM = {
   /** Hero slot — manifest / showreel principal */
+  premium:
+    "https://customer-33e06r8tfld09gay.cloudflarestream.com/2904af56081d7975589359af4783ceaa/manifest/video.m3u8",
   heroPrimary:
     "https://customer-33e06r8tfld09gay.cloudflarestream.com/1b446e056f27ccdf31b6ff0c2af9b28d/manifest/video.m3u8",
   promotional1:
@@ -24,4 +26,6 @@ export const ASSET_IMAGES = {
   photo41: "/assets/4.1.jpg",
   photo43: "/assets/4.3.jpg",
   photo9: "/assets/9.jpg",
+  dr1: "/assets/dr1.jpeg",
+  dr2: "/assets/dr2.jpeg",
 } as const;
