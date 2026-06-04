@@ -33,11 +33,20 @@ export default function ImmersionSection() {
           <div className="font-mono text-[11px] tracking-[0.18em] uppercase text-beige font-medium">
             {strings.immersionSection.sectionLabel}
           </div>
-          <h2 className="font-display font-bold text-[clamp(46px,7vw,120px)] leading-[0.9] tracking-[-0.03em] uppercase text-balance max-w-[1280px] mt-[18px]">
-            {strings.immersionSection.titleLine1} <em className="not-italic text-beige font-medium">{strings.immersionSection.titleEmphasis}</em><br />
-            {strings.immersionSection.titleLine2}<br />
-            {strings.immersionSection.titleLine3} <span className="chrome-text-final italic">{strings.immersionSection.titleSpecial}</span>
+          <h2 className="mt-[18px] font-display font-bold text-[clamp(46px,7vw,120px)] leading-[0.9] tracking-[-0.03em] uppercase text-balance max-w-[1280px] italic chrome-text-final">
+            {strings.immersionSection.headingLine1}
+            <br />
+            {strings.immersionSection.headingLine2}
+            <br />
+            {strings.immersionSection.headingLine3}
           </h2>
+          <p className="mt-6 font-display font-bold text-[clamp(22px,2.8vw,44px)] leading-[0.95] tracking-[-0.02em] uppercase text-balance max-w-[1280px] text-snow">
+            {strings.immersionSection.subtitleLine1}
+            <br />
+            {strings.immersionSection.subtitleLine2}
+            <br />
+            {strings.immersionSection.subtitleLine3}
+          </p>
         </Reveal>
         
         <Reveal delay={200} className="mt-20 w-full min-w-0">
