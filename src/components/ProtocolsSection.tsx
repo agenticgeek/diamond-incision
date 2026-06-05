@@ -1,11 +1,125 @@
 "use client";
 
+import Image from "next/image";
 import Reveal from "./Reveal";
-import HeroVideo from "./HeroVideo";
 import { useCinematicZoom } from "@/hooks/useCinematicZoom";
-import { useRef } from "react";
-import { ASSET_IMAGES, REEL_STREAM } from "@/constants/reels";
+import { useRef, useState, useEffect, useCallback } from "react";
+import { ASSET_IMAGES } from "@/constants/reels";
 import { useLanguage } from "@/lib/LanguageProvider";
+
+const SLIDES = [
+  ASSET_IMAGES.product1,
+  ASSET_IMAGES.product2,
+  ASSET_IMAGES.product3,
+  ASSET_IMAGES.product4,
+  ASSET_IMAGES.product5,
+];
+
+function ProductCarousel() {
+  const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const touchStartX = useRef<number | null>(null);
+  const total = SLIDES.length;
+
+  const next = useCallback(() => setCurrent(i => (i + 1) % total), [total]);
+  const prev = useCallback(() => setCurrent(i => (i - 1 + total) % total), [total]);
+
+  const goTo = (idx: number) => {
+    setCurrent(idx);
+    setPaused(true);
+    setTimeout(() => setPaused(false), 5000);
+  };
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(next, 3500);
+    return () => clearInterval(id);
+  }, [paused, next]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) {
+      diff > 0 ? next() : prev();
+      setPaused(true);
+      setTimeout(() => setPaused(false), 5000);
+    }
+    touchStartX.current = null;
+  };
+
+  const handlePrevClick = () => {
+    prev();
+    setPaused(true);
+    setTimeout(() => setPaused(false), 5000);
+  };
+
+  const handleNextClick = () => {
+    next();
+    setPaused(true);
+    setTimeout(() => setPaused(false), 5000);
+  };
+
+  return (
+    <div
+      className="relative overflow-hidden rounded-[18px] w-full aspect-[4/5]"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
+      {/* Slide track */}
+      <div
+        className="flex h-full transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+        style={{ width: `${total * 100}%`, transform: `translateX(-${(current * 100) / total}%)` }}
+      >
+        {SLIDES.map((src, idx) => (
+          <div key={idx} className="relative h-full flex-shrink-0 bg-[#3a4a6b]" style={{ width: `${100 / total}%` }}>
+            <Image
+              src={src}
+              alt={`Produit Diamond Sculpt ${idx + 1}`}
+              fill
+              className="object-contain"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 34vw"
+              priority={idx === 0}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Prev / Next arrows */}
+      <button
+        onClick={handlePrevClick}
+        aria-label="Précédent"
+        className="absolute left-2.5 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center text-white text-lg leading-none hover:bg-black/50 transition-colors"
+      >
+        ‹
+      </button>
+      <button
+        onClick={handleNextClick}
+        aria-label="Suivant"
+        className="absolute right-2.5 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center text-white text-lg leading-none hover:bg-black/50 transition-colors"
+      >
+        ›
+      </button>
+
+      {/* Dot indicators */}
+      <div className="absolute bottom-3.5 left-0 right-0 flex justify-center gap-1.5 z-10">
+        {SLIDES.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => goTo(idx)}
+            aria-label={`Slide ${idx + 1}`}
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              idx === current ? "w-5 bg-white" : "w-1.5 bg-white/50"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function ProtocolsSection() {
   const { strings } = useLanguage();
@@ -45,14 +159,9 @@ export default function ProtocolsSection() {
           <Reveal delay={200} className="w-full min-w-0 lg:max-w-[520px] lg:justify-self-end shrink-0">
             <div
               ref={videoRef}
-              className="relative mx-auto aspect-9/16 w-full max-w-[min(100%,24rem)] overflow-hidden rounded-[18px] sm:max-w-[26rem] lg:mx-0 lg:ml-auto lg:max-w-[min(100%,min(34vw,32rem))] xl:max-w-[34rem]"
+              className="mx-auto w-full max-w-[min(100%,24rem)] sm:max-w-[26rem] lg:mx-0 lg:ml-auto lg:max-w-[min(100%,min(34vw,32rem))] xl:max-w-[34rem]"
             >
-              <HeroVideo
-                muted
-                hlsUrl={REEL_STREAM.productShowcase}
-                poster={ASSET_IMAGES.photo43}
-                className="absolute inset-0 z-0 h-full w-full object-cover"
-              />
+              <ProductCarousel />
             </div>
           </Reveal>
         </div>

@@ -138,19 +138,6 @@ export default function ImmersionSection() {
               <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-beige sm:text-[11px]">{strings.immersionSection.capsules[3].label}</div>
             </div>
 
-            {/* Capsule E */}
-            <div className="relative flex min-h-[min(36vw,200px)] flex-col justify-end overflow-hidden rounded-[22px] bg-[#0d1626] p-5 sm:p-6 lg:col-span-4 lg:row-start-3 lg:col-start-9 lg:min-h-0">
-              <Image
-                src={ASSET_IMAGES.photo9}
-                alt="Capsule E"
-                fill
-                className="object-cover opacity-55"
-                sizes="(max-width: 1023px) 100vw, 33vw"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-[#0d1626]/95 via-[#1b2d4f]/40 to-black/25" />
-              <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.05)_0_1px,transparent_1px_2px)] opacity-50 mix-blend-overlay" />
-              <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-beige sm:text-[11px]">{strings.immersionSection.capsules[4].label}</div>
-            </div>
           </div>
           </div>
         </Reveal>

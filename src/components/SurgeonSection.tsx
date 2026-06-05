@@ -54,7 +54,7 @@ export default function SurgeonSection() {
             <div ref={mediaContainerRef} className="absolute inset-0">
               <HeroVideo
                 muted
-                hlsUrl={REEL_STREAM.doctor}
+                hlsUrl={REEL_STREAM.promotional3}
                 className="absolute inset-0 z-0 h-full w-full object-cover"
               />
               <div className="absolute inset-0 z-[1] bg-[repeating-linear-gradient(180deg,rgba(255,255,255,0.04)_0_1px,transparent_1px_3px)] mix-blend-screen pointer-events-none"></div>
