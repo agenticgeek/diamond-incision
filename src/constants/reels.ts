@@ -28,4 +28,9 @@ export const ASSET_IMAGES = {
   photo9: "/assets/9.jpg",
   dr1: "/assets/dr1.jpeg",
   dr2: "/assets/dr2.jpeg",
+  product1: "/assets/1.jpg",
+  product2: "/assets/2.jpg",
+  product3: "/assets/3.jpg",
+  product4: "/assets/4.jpg",
+  product5: "/assets/5.jpg",
 } as const;
