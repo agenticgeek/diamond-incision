@@ -50,95 +50,63 @@ export default function ImmersionSection() {
         </Reveal>
         
         <Reveal delay={200} className="mt-20 w-full min-w-0">
-          {/* Mosaic: moderate footprint — not full-bleed width / height */}
           <div className="mx-auto w-full max-w-[min(100%,920px)] xl:max-w-[980px] 2xl:max-w-[1040px]">
             <div
               ref={gridRef}
-              className="grid w-full min-w-0 grid-cols-1 gap-3 sm:gap-4 lg:grid-cols-12 lg:grid-rows-[minmax(200px,22vw)_minmax(200px,22vw)_minmax(160px,16vw)] lg:gap-4"
+              className="grid w-full min-w-0 grid-cols-1 gap-3 sm:gap-4 lg:grid-cols-[5fr_3.5fr_3.5fr] lg:gap-4"
             >
-            {/* Main video — 8/12 cols, 2 rows tall (~⅔ × full stack height) */}
-            <div className="relative flex min-h-[min(52vw,280px)] flex-col justify-between overflow-hidden rounded-[22px] bg-[#0d1626] p-5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)] sm:p-6 lg:col-span-8 lg:row-span-2 lg:row-start-1 lg:min-h-0">
+            {/* Main video — 8/12 cols, 2 rows tall */}
+            <div className="relative flex flex-col justify-between overflow-hidden rounded-[22px] bg-[#0d1626] p-5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)] sm:p-6 lg:col-start-1 lg:row-span-2 lg:row-start-1 aspect-[9/16]">
               <HeroVideo
                 muted
                 hlsUrl={REEL_STREAM.promotional3}
-                poster={ASSET_IMAGES.photo9}
                 className="absolute inset-0 z-0 h-full w-full object-cover"
               />
               <div className="pointer-events-none absolute inset-0 z-1 bg-[radial-gradient(60%_60%_at_60%_30%,rgba(222,205,187,0.2),transparent_55%),linear-gradient(150deg,rgba(63,84,106,0.45)_0%,rgba(27,45,79,0.7)_55%,rgba(10,19,38,0.88)_100%)]" />
               <div className="pointer-events-none absolute inset-0 z-2 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.06)_0_1px,transparent_1px_3px)] opacity-55 mix-blend-overlay" />
-
               <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.9)] sm:text-[11px]">
                 {strings.immersionSection.mainVideoLabel}
               </div>
-
               <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.88)] sm:text-[11px]">
                 {strings.immersionSection.mainVideoFooter}
               </div>
             </div>
 
-            {/* Capsule A — top-right */}
-            <div className="relative flex min-h-[min(40vw,220px)] flex-col justify-between overflow-hidden rounded-[22px] p-5 sm:p-6 lg:col-span-4 lg:row-start-1 lg:col-start-9 lg:min-h-0">
-              <Image
-                src={ASSET_IMAGES.photo21}
-                alt="Avant / après — transformations"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1023px) 100vw, 33vw"
-              />
+            {/* Capsule A — top-left of right block */}
+            <div className="relative flex min-h-[min(40vw,220px)] flex-col justify-between overflow-hidden rounded-[22px] p-5 sm:p-6 lg:col-start-2 lg:row-start-1 lg:min-h-0">
+              <Image src={ASSET_IMAGES.photo21} alt="" fill className="object-cover" sizes="(max-width: 1023px) 100vw, 33vw" />
               <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-cherry/90 via-cherry/30 to-black/25" />
               <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.05)_0_1px,transparent_1px_2px)] opacity-50 mix-blend-overlay" />
               <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-beige sm:text-[11px]">{strings.immersionSection.capsules[0].label}</div>
-              <div className="relative z-10 max-w-[95%] font-mono text-[10px] leading-snug tracking-[0.18em] uppercase text-[rgba(255,255,255,0.9)] sm:text-[11px]">
-                {strings.immersionSection.capsules[0].text}
-              </div>
+              <div className="relative z-10 max-w-[95%] font-mono text-[10px] leading-snug tracking-[0.18em] uppercase text-[rgba(255,255,255,0.9)] sm:text-[11px]">{strings.immersionSection.capsules[0].text}</div>
             </div>
 
-            {/* Capsule B — mid-right */}
-            <div className="relative flex min-h-[min(40vw,220px)] flex-col justify-between overflow-hidden rounded-[22px] p-5 sm:p-6 lg:col-span-4 lg:row-start-2 lg:col-start-9 lg:min-h-0">
-              <Image
-                src={ASSET_IMAGES.photo22}
-                alt="Conférences internationales"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1023px) 100vw, 33vw"
-              />
+            {/* Capsule B — top-right of right block */}
+            <div className="relative flex min-h-[min(40vw,220px)] flex-col justify-between overflow-hidden rounded-[22px] p-5 sm:p-6 lg:col-start-3 lg:row-start-1 lg:min-h-0">
+              <Image src={ASSET_IMAGES.photo22} alt="" fill className="object-cover" sizes="(max-width: 1023px) 100vw, 33vw" />
               <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-[#0d1626]/92 via-[#2c4768]/35 to-black/20" />
               <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.05)_0_1px,transparent_1px_2px)] opacity-50 mix-blend-overlay" />
               <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-beige sm:text-[11px]">{strings.immersionSection.capsules[1].label}</div>
-              <div className="relative z-10 max-w-[95%] font-mono text-[10px] leading-snug tracking-[0.18em] uppercase text-[rgba(255,255,255,0.9)] sm:text-[11px]">
-                {strings.immersionSection.capsules[1].text}
-              </div>
+              <div className="relative z-10 max-w-[95%] font-mono text-[10px] leading-snug tracking-[0.18em] uppercase text-[rgba(255,255,255,0.9)] sm:text-[11px]">{strings.immersionSection.capsules[1].text}</div>
             </div>
 
-            {/* Capsule C */}
-            <div className="relative flex min-h-[min(36vw,200px)] flex-col justify-end overflow-hidden rounded-[22px] p-5 sm:p-6 lg:col-span-4 lg:row-start-3 lg:col-start-1 lg:min-h-0">
-              <Image
-                src={ASSET_IMAGES.photo41}
-                alt="Capsule C"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1023px) 100vw, 33vw"
-              />
+            {/* Capsule C — bottom-left of right block */}
+            <div className="relative flex min-h-[min(36vw,200px)] flex-col justify-end overflow-hidden rounded-[22px] p-5 sm:p-6 lg:col-start-2 lg:row-start-2 lg:min-h-0">
+              <Image src={ASSET_IMAGES.photo41} alt="" fill className="object-cover" sizes="(max-width: 1023px) 100vw, 33vw" />
               <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-[#1a0a0c]/88 via-transparent to-black/30" />
               <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.05)_0_1px,transparent_1px_2px)] opacity-50 mix-blend-overlay" />
               <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-beige sm:text-[11px]">{strings.immersionSection.capsules[2].label}</div>
             </div>
 
-            {/* Capsule D */}
-            <div className="relative flex min-h-[min(36vw,200px)] flex-col justify-end overflow-hidden rounded-[22px] p-5 sm:p-6 lg:col-span-4 lg:row-start-3 lg:col-start-5 lg:min-h-0">
-              <Image
-                src={ASSET_IMAGES.photo43}
-                alt="Capsule D"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1023px) 100vw, 33vw"
-              />
+            {/* Capsule D — bottom-right of right block */}
+            <div className="relative flex min-h-[min(36vw,200px)] flex-col justify-end overflow-hidden rounded-[22px] p-5 sm:p-6 lg:col-start-3 lg:row-start-2 lg:min-h-0">
+              <Image src={ASSET_IMAGES.photo43} alt="" fill className="object-cover" sizes="(max-width: 1023px) 100vw, 33vw" />
               <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-[#0a0f0d]/90 via-transparent to-black/35" />
               <div className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.05)_0_1px,transparent_1px_2px)] opacity-50 mix-blend-overlay" />
               <div className="relative z-10 font-mono text-[10px] tracking-[0.22em] uppercase text-beige sm:text-[11px]">{strings.immersionSection.capsules[3].label}</div>
             </div>
 
-          </div>
+            </div>
           </div>
         </Reveal>
         

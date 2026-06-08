@@ -94,6 +94,18 @@ export default function HeroVideo({
     video.muted = muted;
   }, [muted]);
 
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const handleTimeUpdate = () => {
+      if (video.duration && video.currentTime >= video.duration - 0.3) {
+        video.currentTime = 0;
+      }
+    };
+    video.addEventListener("timeupdate", handleTimeUpdate);
+    return () => video.removeEventListener("timeupdate", handleTimeUpdate);
+  }, []);
+
   return (
     <video
       ref={videoRef}
