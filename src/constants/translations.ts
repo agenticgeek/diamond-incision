@@ -88,7 +88,7 @@ export const translations = {
           className: "bg-slate text-snow border-transparent",
         },
         {
-          id: "pro",
+          id: "professionnel",
           num: "P / 03 — Pro",
           title: "Je suis professionnel du péri-opératoire",
           desc: "Formations avancées Diamond × METCARE et protocoles d'accompagnement.",
@@ -240,7 +240,7 @@ export const translations = {
       cards: [
         { id: "patient", num: "F / 01", label: "Patient", title: "Je suis\npatient", cta: "Accéder", icon: "pi-1" },
         { id: "chirurgien", num: "F / 02", label: "Surgeon", title: "Je suis\nchirurgien", cta: "Candidature", icon: "pi-3" },
-        { id: "pro", num: "F / 03", label: "Pro", title: "Je suis\nprofessionnel", cta: "Formations", icon: "pi-2" },
+        { id: "professionnel", num: "F / 03", label: "Pro", title: "Je suis\nprofessionnel", cta: "Formations", icon: "pi-2" },
         { id: "protocoles", num: "F / 04", label: "Boutique", title: "Protocoles\n& solutions", cta: "Découvrir", icon: "pi-4" },
       ],
       footerLinks: [
@@ -339,7 +339,7 @@ export const translations = {
           className: "bg-slate text-snow border-transparent",
         },
         {
-          id: "pro",
+          id: "professionnel",
           num: "P / 03 — Pro",
           title: "I am a perioperative professional",
           desc: "Diamond × METCARE advanced training and support protocols.",
@@ -491,7 +491,7 @@ export const translations = {
       cards: [
         { id: "patient", num: "F / 01", label: "Patient", title: "I am\na patient", cta: "Enter", icon: "pi-1" },
         { id: "chirurgien", num: "F / 02", label: "Surgeon", title: "I am a\nsurgeon", cta: "Apply", icon: "pi-3" },
-        { id: "pro", num: "F / 03", label: "Pro", title: "I am a\nprofessional", cta: "Training", icon: "pi-2" },
+        { id: "professionnel", num: "F / 03", label: "Pro", title: "I am a\nprofessional", cta: "Training", icon: "pi-2" },
         { id: "protocoles", num: "F / 04", label: "Boutique", title: "Protocols\n& solutions", cta: "Discover", icon: "pi-4" },
       ],
       footerLinks: [
